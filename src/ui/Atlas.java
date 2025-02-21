@@ -6,7 +6,7 @@
 * Ejemplo:
 */
 
-package ui;
+
 
 import java.util.Scanner;
 
@@ -15,7 +15,8 @@ public class Atlas {
 	private Scanner escaner;
 
     // Declaracion de constantes (completar)
-    final double COSTO_TRAYECTO_AVION = 250000;
+    final double COSTO_NOCHES_OPEDAJE= 150000;
+    final double COSTO_TRAYECTO_AVION = 500000;
 
 	private Atlas() {
 		escaner = new Scanner(System.in);
@@ -38,10 +39,37 @@ public class Atlas {
 
         // Declaracion de salidas calculadas (completar)
         double totalTransporte;
+        int noches;
+
         // Calculo de salidas mediante metodos (completar)
-        totalTransporte = calcularTotalTransporte(); // aqui podrian faltar parametros
+                 // aqui podrian faltar parametros
+        System.out.println("Perfecto " + nombre + " Me podria decir tu edad? ");
+        String edad;
+        edad = escaner.nextLine();
+        System.out.println("Perfecto " + nombre +(" entonces tienes ") + edad +(" años"));
+        System.out.println("Me podria decir tu numero de Documento de Identidad");
+        String DNI;
+        DNI = escaner.nextLine();
+        System.out.println("Ahora me puedes decir desde que ciudad te comunicas");
+        String ciudad;
+        ciudad = escaner.nextLine();
+        System.out.println("Bienvenido a EVENTOS ATLAS, cuantas noches deseas hospedarte?");
+        noches = escaner.nextInt();
+        totalTransporte = calcularTotalTransporte(noches, COSTO_NOCHES_OPEDAJE);
+    
+        double op = noches*COSTO_NOCHES_OPEDAJE;
+    
+
+
+
+       System.out.println("Entonces tu ospedaje costaria " + COSTO_TRAYECTO_AVION );
+                       
 	}
 
+    public double calcularTotalTransporte(int noches, double COSTO_NOCHES_OPEDAJE) {
+        double op = noches*COSTO_NOCHES_OPEDAJE;
+        return op; // Completar operacion
+    }
 	public static void main(String[] args) {
 		Atlas mainApp = new Atlas();
 		mainApp.run();
@@ -54,9 +82,6 @@ public class Atlas {
 	 * @param 
 	 * @return 
 	 */
-    public double calcularTotalTransporte() {
-        return 0; // Completar operacion
-    }
 
 	
 
